@@ -3,6 +3,17 @@
 version = 3
 
 [[package]]
+name = "Hasher512_cli"
+version = "0.1.0"
+dependencies = [
+ "clap",
+ "colored",
+ "sha1",
+ "sha2",
+ "sha3",
+]
+
+[[package]]
 name = "anstream"
 version = "0.6.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -65,17 +76,6 @@ name = "cfg-if"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
-
-[[package]]
-name = "checksum512_cli"
-version = "0.1.0"
-dependencies = [
- "clap",
- "colored",
- "sha1",
- "sha2",
- "sha3",
-]
 
 [[package]]
 name = "clap"
