@@ -10,10 +10,6 @@ use crypt_tools::sha1::hash_sha1;
 use crypt_tools::sha256::hash_sha256;
 use crypt_tools::sha512::hash_sha512;
 
-
-
-
-
 #[derive(Default)]
 struct MyApp {
     input_text: String,
@@ -44,9 +40,17 @@ impl eframe::App for MyApp {
             if ui.button("Select File").clicked() {
                 if let Some(path) = FileDialog::new().pick_file() {
                     self.file_path = Some(path.display().to_string());
+
+                    // Open the file separately for each hash calculation
                     if let Ok(file) = File::open(&path) {
-                        self.sha1_hash = crypt_tools::sha1::hash_sha1(BufReader::new(file.try_clone().expect("Failed to clone file handle")));
-                        self.sha256_hash = hash_sha256(BufReader::new(file.try_clone().expect("Failed to clone file handle")));
+                        self.sha1_hash = hash_sha1(BufReader::new(file));
+                    }
+
+                    if let Ok(file) = File::open(&path) {
+                        self.sha256_hash = hash_sha256(BufReader::new(file));
+                    }
+
+                    if let Ok(file) = File::open(&path) {
                         self.sha512_hash = hash_sha512(BufReader::new(file));
                     }
                 }

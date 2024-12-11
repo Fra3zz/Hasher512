@@ -73,11 +73,16 @@ fn main() {
         .get_matches();
 
     if let Some(file_path) = matches.get_one::<String>("file") {
-        let file = File::open(file_path).expect("Failed to open file");
         println!("{}", "Hashes for file:".bold().underline());
-        println!("{}   {}", "SHA-1:".green(), hash_sha1(file.try_clone().expect("Failed to clone file handle")));
-        println!("{} {}", "SHA-256:".yellow(), hash_sha256(file.try_clone().expect("Failed to clone file handle")));
-        println!("{} {}", "SHA-512:".blue(), hash_sha512(file));
+
+        let file = File::open(file_path).expect("Failed to open file");
+        println!("{}   {}", "SHA-1:".green(), hash_sha1(BufReader::new(file)));
+
+        let file = File::open(file_path).expect("Failed to open file");
+        println!("{} {}", "SHA-256:".yellow(), hash_sha256(BufReader::new(file)));
+
+        let file = File::open(file_path).expect("Failed to open file");
+        println!("{} {}", "SHA-512:".blue(), hash_sha512(BufReader::new(file)));
     } else if let Some(text) = matches.get_one::<String>("text") {
         println!("{}", "Hashes for text:".bold().underline());
         println!("{}   {}", "SHA-1:".green(), hash_sha1(text.as_bytes()));
