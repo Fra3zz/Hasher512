@@ -1,0 +1,13 @@
+[package]
+name = "Hasher512"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sha1 = "0.10"
+sha2 = "0.10"
+sha3 = "0.10"
+colored = "2.0"
+clap = { version = "4.0", features = ["derive"] }
+eframe = "0.29.1"
+rfd = "0.15.1"
