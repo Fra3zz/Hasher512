@@ -33,3 +33,5 @@ SHA-1:   67bb910c677ab0c5ca66f545f51313e78f557d4b
 SHA-256: 762ff8b22af1fb7140f5424ccb8c9ac65faf21e95daba4e9a03d9ebea7964f50
 SHA-512: 764ee45108abc26029db739e380783b21c16a8c81f4aca0b6bf2707bec78e5b5ea4497f28c609c28a492465baabcd9da08630440aa2a1a982e369724c436a04c
 ```
+
+### Pull REquests welcome and evaluated when I have time.
