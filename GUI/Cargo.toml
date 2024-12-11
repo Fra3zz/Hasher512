@@ -1,5 +1,5 @@
 [package]
-name = "Hasher512_cli"
+name = "Hasher512_gui"
 version = "0.1.0"
 edition = "2021"
 
